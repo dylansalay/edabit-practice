@@ -68,4 +68,203 @@ console.log(canNest([3, 1], [4, 0]))
 console.log(canNest([9, 9, 8], [8, 9]))
 // Expect ➞ false
 console.log(canNest([1, 2, 3, 4], [2, 3]))
-// Expect ➞ fals
+// Expect ➞ false
+
+// Recursion: Factorials
+function factorial(n) { 
+    return n===0 || n===1 ? 1 : n * factorial(n-1)
+}
+
+console.log(factorial(5))
+// Expect ➞ 120
+console.log(factorial(3))
+// Expect ➞ 6
+console.log(factorial(1))
+// Expect ➞ 1
+console.log(factorial(0))
+// Expect ➞ 1
+
+// Largest Swap
+largestSwap = (num) => {
+    let arr = num.toString().split('')
+    return arr[0] >= arr[1] ? true : false
+}
+
+console.log(largestSwap(14))
+// Expect ➞ false
+console.log(largestSwap(53))
+// Expect ➞ true
+console.log(largestSwap(99))
+// Expect ➞ true
+
+
+// Factorial of a Positive Integer
+function factorial(z) {
+    let x = 1
+    for (let i=1;i<=z;i++){
+        x *= i
+    }
+    return x
+}
+
+console.log(factorial(4))
+// Expect ➞ 24
+console.log(factorial(0))
+// Expect ➞ 1
+console.log(factorial(9))
+// Expect ➞ 362880
+
+// Count Instances of a Character in a String
+function charCount(myChar, str) {
+    let arr=str.split('')
+    let x = 0
+    for (let i=0;i<arr.length;i++){
+        if(arr[i] === myChar){
+            x += 1
+        }
+    }
+    return x
+}
+
+console.log(charCount("a", "edabit"))
+// Expect ➞ 1
+console.log(charCount("c", "Chamber of secrets"))
+// Expect ➞ 1
+console.log(charCount("b", "big fat bubble"))
+// Expect ➞ 4
+
+// Is it Time for Milk and Cookies?
+timeForMilkAndCookies = (date) => {
+    return (date.getMonth() === 11) && (date.getDate() === 24) ? true : false
+	
+}
+
+console.log(timeForMilkAndCookies(new Date(2013, 11, 24)))
+// Expect ➞ true
+console.log(timeForMilkAndCookies(new Date(2013, 0, 23)))
+// Expect➞ false
+console.log(timeForMilkAndCookies(new Date(3000, 11, 24)))
+// Expect ➞ true
+
+// Return the Index of the First Vowel
+function firstVowel(str) {
+    // let arr = str.split('')
+    // let newArr = []
+    // for(let i=0;i<arr.length;i++){
+    //     if(arr[i] === 'a' || arr[i] === 'A' ||
+    //        arr[i] === 'e' || arr[i] === 'E' ||
+    //        arr[i] === 'i' || arr[i] === 'I' || 
+    //        arr[i] === 'o' || arr[i] === 'O' || 
+    //        arr[i] === 'u' || arr[i] === 'U'){
+    //         newArr.push(i)
+    //     }
+    // }
+    // return newArr[0]
+
+    return str.search(/a|e|i|o|u/i)
+}
+
+console.log(firstVowel("apple"))
+// Expect ➞ 0
+console.log(firstVowel("hello"))
+// Expect ➞ 1
+console.log(firstVowel("STRAWBERRY"))
+// Expect ➞ 3
+console.log(firstVowel("pInEaPPLe"))
+// Expect ➞ 1
+
+// Filter out Strings from an Array
+
+filterArray = (arr) => {
+    let newArr = []
+	arr.map(el => {
+        if(typeof el === 'number'){
+            newArr.push(el)
+        }  
+    })
+    return newArr
+}
+
+console.log(filterArray([1, 2, "a", "b"]))
+// Edabit ➞ [1, 2]
+console.log(filterArray([1, "a", "b", 0, 15]))
+// Edabit ➞ [1, 0, 15]
+console.log(filterArray([1, 2, "aasf", "1", "123", 123]))
+// Edabit ➞ [1, 2, 123]
+
+// Sum of Cubes
+function sumOfCubes(nums) {
+    let x = 0
+    for(let i=0;i<nums.length;i++){
+        x += (Math.pow(nums[i],3))
+    }
+    return x
+}
+
+console.log(sumOfCubes([1, 5, 9]))
+// Edabit ➞ 855
+console.log(sumOfCubes([3, 4, 5]))
+// Edabit ➞ 216
+console.log(sumOfCubes([2]))
+// Edabit ➞ 8
+console.log(sumOfCubes([]))
+// Edabit ➞ 0
+
+// Hashes and Pluses
+hashPlusCount = (str) => {
+    let arr = str.split('')
+    let h = 0
+    let p = 0
+    for(let i=0;i<arr.length;i++){
+        if(arr[i] === '#'){
+            h += 1
+        } else if(arr[i] === '+'){
+            p +=1
+        }
+    }
+    return [h, p]
+}
+
+console.log(hashPlusCount("###+"))
+// Expect ➞ [3, 1]
+console.log(hashPlusCount("##+++#"))
+// Expect ➞ [3, 3]
+console.log(hashPlusCount("#+++#+#++#"))
+// Expect ➞ [4, 6]
+console.log(hashPlusCount(""))
+// Expect ➞ [0, 0]
+
+// Repeating Letters
+doubleChar = (str) => {
+    let arr = str.split('')
+    let newArr = []
+    for (let i=0;i<arr.length;i++){
+        newArr.push(arr[i], arr[i])
+    }
+    return newArr.join('')
+}
+
+console.log(doubleChar("String"))
+// Expect ➞ "SSttrriinngg"
+console.log(doubleChar("Hello World!"))
+// Expect ➞ "HHeelllloo  WWoorrlldd!!"
+console.log(doubleChar("1234!_ "))
+// Expect ➞ "11223344!!__  "
+
+
+// Secret Society
+
+function societyName(friends) {
+    let newArr = []
+    friends.map(el => {
+        newArr.push(el[0])
+    })
+    return newArr.sort().join('')
+}
+
+console.log(societyName(["Adam", "Sarah", "Malcolm"]))
+// Expect ➞ "AMS"
+console.log(societyName(["Harry", "Newt", "Luna", "Cho"]))
+// Expect ➞ "CHLN"
+console.log(societyName(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"]))
+// Expect ➞ "CJMPRR"

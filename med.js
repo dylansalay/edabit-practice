@@ -27,7 +27,6 @@ console.log(arrayOfMultiples(17, 6))
 // Expect ➞ [17, 34, 51, 68, 85, 102]
 
 // Converting Objects to Arrays
-
 function toArray(obj) {
     let arr = []
     for(let key in obj){
@@ -61,7 +60,6 @@ console.log(solveForExp(9, 3486784401))
 // Expect ➞ 10
 
 // Convenience Store
-
 function changeEnough(change, amountDue) {
 	return ((change[0] * .25) + (change[1] * .10) + (change[2] * .05) + (change[3] * .01)) >= amountDue ? true : false
 }
@@ -90,3 +88,97 @@ console.log(objectToArray({D: 1, B: 2, C: 3}))
 // Expect ➞ [["D", 1], ["B", 2], ["C", 3]]
 console.log(objectToArray({likes: 2, dislikes: 3, followers: 10}))
 // Expect ➞ [["likes", 2], ["dislikes", 3], ["followers", 10]]
+
+// Compound Interest
+function compoundInterest(p, t, r, n) {
+    return (p*(Math.pow((1+(r/n)),n*t))).toFixed(2)
+}
+
+console.log(compoundInterest(100, 1, 0.05, 1))
+// Expect ➞ 105.0
+console.log(compoundInterest(3500, 15, 0.1, 4))
+// Expect ➞ 15399.26
+console.log(compoundInterest(100000, 20, 0.15, 365))
+// Expect ➞ 2007316.26
+
+
+// Something in the Box?
+inBox = (arr) => {
+    let newArr = []
+	arr.map(el => {
+        el.indexOf('*') > 0 && el.indexOf('*') < el.length-1 ? newArr.push(true) : newArr.push(false)
+    })
+    return newArr.includes(true)
+}
+
+console.log(inBox([ "###", "#*#", "###"]))
+// Expect ➞ true
+console.log(inBox([ "####", "#* #", "#  #", "####"]))
+// Expect ➞ true
+console.log(inBox([ "*####", "# #", "#  #*", "####"]))
+// Expect ➞ false 
+console.log(inBox([ "#####", "#   #", "#   #", "#   #", "#####"]))
+// Expect ➞ false
+
+// Fix the Error: Value vs. Reference Types
+
+// Fix this broken code!
+function checkEquals(arr1, arr2) {
+    let newArr = []
+    for(let i=0;i<arr1.length;i++){
+        arr1[i] === arr2[i] ? newArr.push(true) : newArr.push(false)
+    }
+    return newArr.includes(false) ? false : true
+}
+
+console.log(checkEquals([1, 2], [1, 3]))
+// Expect ➞ false
+console.log(checkEquals([1, 2], [1, 2]))
+// Expect ➞ true
+console.log(checkEquals([4, 5, 6], [4, 5, 6]))
+// Expect ➞ true
+console.log(checkEquals([4, 7, 6], [4, 5, 6]))
+// Expect ➞ false
+
+// Basic Calculator
+function calculator(num1, operator, num2) {
+    if(operator === "+"){
+        return (num1 + num2)
+    } else if(operator === "-"){
+        return (num1 - num2)
+    } else if (operator === "*"){
+        return (num1 * num2)
+    } else if (operator === "/" && num2 !== 0){
+        return (num1 / num2)
+    } else {
+        return ("Can't divide by 0!")
+    }
+}
+
+console.log(calculator(2, "+", 2))
+// Expect ➞ 4
+console.log(calculator(2, "*", 2))
+// Expect ➞ 4
+console.log(calculator(4, "/", 2))
+// Expect ➞ 2
+
+// Hitting the Jackpot
+function testJackpot(result) {
+    let newArr = []
+    for (let i=0;i<result.length;i++){
+        result[i] === result[0] ? newArr.push(true) : newArr.push(false)
+    }
+    return newArr.includes(false) ? false : true
+
+}
+
+console.log(testJackpot(["@", "@", "@", "@"]))
+// Expect ➞ true
+console.log(testJackpot(["abc", "abc", "abc", "abc"]))
+// Expect ➞ true
+console.log(testJackpot(["SS", "SS", "SS", "SS"]))
+// Expect ➞ true
+console.log(testJackpot(["&&", "&", "&&&", "&&&&"]))
+// Expect ➞ false
+console.log(testJackpot(["SS", "SS", "SS", "Ss"]))
+// Expect ➞ false

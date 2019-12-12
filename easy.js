@@ -268,3 +268,63 @@ console.log(societyName(["Harry", "Newt", "Luna", "Cho"]))
 // Expect ➞ "CHLN"
 console.log(societyName(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"]))
 // Expect ➞ "CJMPRR"
+
+// Amplify the Multiples of Four
+function amplify(num) {
+    let arr = []
+    for(let i=1;i<=num;i++){
+        arr.push(i%4===0 ? i*10: i)
+    }
+    return arr
+}
+
+console.log(amplify(4))
+// Expect ➞ [1, 2, 3, 40]
+// Create a sequence from 1 to 4
+// 4 is exactly divisible by 4, so it will be 4*10 = 40
+
+console.log(amplify(3))
+// Expect ➞ [1, 2, 3]
+// Create a sequence from 1 to 3
+// There are no numbers that can be exactly divided by 4
+
+console.log(amplify(25))
+// Expect ➞ [1, 2, 3, 40, 5, 6, 7, 80, 9, 10, 11, 120, 13, 14, 15, 160, 17, 18, 19, 200, 21, 22, 23, 240, 25]
+// Create a sequence from 1 to 25
+// The numbers exactly divisible by 4 are: 4 (4*10 = 40), 8 (8 * 10 = 80)... and so on.
+
+
+// Scrabble Hand
+maximumScore = (tileHand) => {
+    let x = 0
+	for (let i=0;i<tileHand.length;i++){
+        x += tileHand[i].score
+    }
+    return x
+}
+
+console.log(maximumScore([{ tile: "N", score: 1 },{ tile: "K", score: 5 },{ tile: "Z", score: 10 },{ tile: "X", score: 8 },{ tile: "D", score: 2 },{ tile: "A", score: 1 },{ tile: "E", score: 1 }]))
+// Expect➞ 28
+console.log(maximumScore([{ tile: "B", score: 2 },{ tile: "V", score: 4 },{ tile: "F", score: 4 },{ tile: "U", score: 1 },{ tile: "D", score: 2 },{tile: "O", score: 1 },{ tile: "U", score: 1 }])) 
+// Expect ➞ 15
+
+// Omnipresent Value
+function isOmnipresent(arr, val) {
+    // let newArr = []
+	// for(let i=0;i<arr.length;i++){
+    //     arr[i].includes(val) ? newArr.push(true) : newArr.push(false)
+    // }
+
+    // return newArr.includes(false) ? false : true
+    return arr.every(el => el.includes(val))
+}
+
+
+console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 1))
+// Expect ➞ true
+console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 6))
+// Expect ➞ false
+console.log(isOmnipresent([[5], [5], [5], [6, 5]], 5))
+// Expect ➞ true
+console.log(isOmnipresent([[5], [5], [5], [6, 5]], 6))
+// Expect ➞ false

@@ -182,3 +182,47 @@ console.log(testJackpot(["&&", "&", "&&&", "&&&&"]))
 // Expect ➞ false
 console.log(testJackpot(["SS", "SS", "SS", "Ss"]))
 // Expect ➞ false
+
+
+// Algebra Sequence — Boxes
+boxSeq = (step) => {
+    return step + (step%2 * 2)
+}
+
+
+console.log(boxSeq(0))
+// Expect ➞ 0
+console.log(boxSeq(1))
+// Expect ➞ 3
+console.log(boxSeq(2))
+// Expect ➞ 2
+
+
+// Index Multiplier
+function indexMultiplier(arr) {
+    let x = 0 
+    for (let i=0;i<arr.length;i++){
+        x += (arr[i] * i)
+    }
+    return x
+
+}
+console.log(indexMultiplier([1, 2, 3, 4, 5]))
+// Expect ➞ 40
+// (1*0 + 2*1 + 3*2 + 4*3 + 5*4)
+console.log(indexMultiplier([-3, 0, 8, -6]))
+// Expect ➞ -2
+// (-3*0 + 0*1 + 8*2 + -6*3)
+
+
+// Reverse the Number
+rev = (n) => {
+	return Math.abs(n).toString().split('').reverse().join('')
+}
+
+console.log(rev(5121))
+// Expect ➞ "1215"
+console.log(rev(69))
+// Expect ➞ "96"
+console.log(rev(-122157))
+// Expect ➞ "751221"

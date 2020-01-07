@@ -226,3 +226,50 @@ console.log(rev(69))
 // Expect ➞ "96"
 console.log(rev(-122157))
 // Expect ➞ "751221"
+
+// Functioninator 8000
+inatorInator = (inv) => {
+    let count = inv.length
+    let arr = inv.split('')
+    for(let i=0;i<arr.length;i++){
+        if(arr[inv.length-1].match(((/a|e|i|o|u/i)))){
+            return `${inv.concat("-inator")} ${count + "000"}`
+        } else {
+            return `${inv.concat("inator")} ${count + "000"}`
+        }
+    }
+}
+
+console.log(inatorInator("Shrink"))
+// Expect ➞ "Shrinkinator 6000"
+console.log(inatorInator("Doom"))
+// Expect ➞ "Doominator 4000"
+console.log(inatorInator("EvilClone"))
+// Expect ➞ "EvilClone-inator 9000"
+
+// Word Nests
+wordNest = (word, nest) => {
+    return (nest.length/word.length) -1
+}
+
+console.log(wordNest("floor", "floor"))
+// Expect ➞ 0
+console.log(wordNest("code", "cocodccococodededeodeede"))
+// Expect ➞ 5
+console.log(wordNest("incredible", "increinincrincredibleediblecredibledible"))
+// Expect ➞ 3
+
+// Concatenate Variable Number of Input Arrays
+function concat(...args) {
+    let arr = []
+    return arr.concat(...args)
+}
+
+console.log(concat([1, 2, 3], [4, 5], [6, 7]))
+// Expect ➞ [1, 2, 3, 4, 5, 6, 7]
+console.log(concat([1], [2], [3], [4], [5], [6], [7]))
+// Expect ➞ [1, 2, 3, 4, 5, 6, 7]
+console.log(concat([1, 2], [3, 4]))
+// Expect ➞ [1, 2, 3, 4]
+console.log(concat([4, 4, 4, 4, 4]))
+// Expect ➞ [4, 4, 4, 4, 4]

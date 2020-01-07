@@ -328,3 +328,102 @@ console.log(isOmnipresent([[5], [5], [5], [6, 5]], 5))
 // Expect ➞ true
 console.log(isOmnipresent([[5], [5], [5], [6, 5]], 6))
 // Expect ➞ false
+
+// First and Last Index
+function charIndex(word, char) {
+    let arr = word.split('')
+    let newArr = []
+    if(word.includes(char)){
+        for (let i=0;i<arr.length;i++){
+            if(arr[i] === char){
+                newArr.push(i)
+            }
+        }
+        return [newArr[0], newArr[newArr.length-1]]
+    } else {
+        return 'undefined'
+    }	
+}
+console.log(charIndex("hello", "l"))
+// Expect ➞ [2, 3]
+// The first "l" has index 2, the last "l" has index 3.
+console.log(charIndex("circumlocution", "c"))
+// Expect ➞ [0, 8]
+// The first "c" has index 0, the last "c" has index 8.
+console.log(charIndex("happy", "h"))
+// Expect ➞ [0, 0]
+// Only one "h" exists, so the first and last index is 0.
+console.log(charIndex("happy", "e"))
+// Expect ➞ undefined
+// "e" does not exist in "happy", so we return undefined.
+
+// Spelling it Out
+spelling = (str) => {
+    let arr = []
+    for (let i=1;i<=str.length;i++){
+        arr.push(str.slice(0,i))
+    }
+    return arr
+}
+
+console.log(spelling("bee"))
+// Expect ➞ ["b", "be", "bee"]
+console.log(spelling("happy"))
+// Expect ➞ ["h", "ha", "hap", "happ", "happy"]
+console.log(spelling("eagerly"))
+// Expect ➞ ["e", "ea", "eag", "eage", "eager", "eagerl", "eagerly"]
+
+// Absolute Sum
+function getAbsSum(arr) {
+    let x =0
+    for (let i=0;i<arr.length;i++){
+        x += Math.abs(arr[i])
+    }
+    return x
+}
+
+console.log(getAbsSum([2, -1, 4, 8, 10]))
+// Expect ➞ 25
+console.log(getAbsSum([-3, -4, -10, -2, -3]))
+// Expect ➞ 22
+console.log(getAbsSum([2, 4, 6, 8, 10]))
+// Expect ➞ 30
+console.log(getAbsSum([-1]))
+// Expect ➞ 1
+
+
+// How Many Vowels?
+
+countVowels = (str) => {
+    let x = 0
+    for(let i=0;i<str.length;i++){
+        if(str[i] === 'a' || str[i] === 'e' || str[i] === 'i' || str[i] === 'o' || str[i] === 'u'){
+            x += 1
+        } 
+    }
+    return x
+}
+
+console.log(countVowels("Celebration"))
+// Expect ➞ 5
+console.log(countVowels("Palm"))
+// Expect ➞ 1
+console.log(countVowels("Prediction"))
+// Expect ➞ 4
+
+// Return the Factorial
+function factorial(int) {
+    let x = 1
+    for (let i=1;i<=int;i++){
+        x *= i
+    }
+	return x
+}
+
+
+console.log(factorial(3))
+// Expect ➞ 6
+console.log(factorial(5))
+// Expect ➞ 120
+console.log(factorial(13))
+// Expect ➞ 6227020800
